@@ -1,0 +1,95 @@
+# This is the configuration used to check the rubocop source code.
+# See https://github.com/bbatsov/rubocop/blob/master/config/default.yml for options
+
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.6
+  DisplayCopNames: true
+  # Keep inclusions list in sync with test > post > bundle exec rubocop --force-exclusion > files section of circle.yml
+  Include:
+    - 'app/**/*.rb'
+    - 'Brewfile'
+    - 'Capfile'
+    - 'config.ru'
+    - 'config/**/*.rb'
+    - 'db/**/*.rb'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'lib/**/*.rb'
+    - 'Rakefile'
+    - 'test/**/*.rb'
+  Exclude:
+    - 'bin/**/*'
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'db/schema.rb'
+    - 'Guardfile'
+    - 'node_modules/**/*'
+    - 'test/fixtures/**/*'
+    - 'test/test_helper.rb'
+    - 'vendor/**/*'
+
+Layout/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Lint/UnusedBlockArgument: { Enabled: true }
+
+Metrics/AbcSize:
+  Max: 35
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'Gemfile'
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/ModuleLength:
+  Max: 120
+
+Naming/FileName:
+  Exclude:
+    - 'Capfile'
+    - 'Guardfile'
+
+Rails: { Enabled: true }
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/**/*.rb'
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/LambdaCall:
+  EnforcedStyle: call
+  Exclude:
+    - 'app/**/*.jbuilder'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  MinSize: 3
+
+Style/WordArray:
+  MinSize: 3
+
+Style/AccessModifierDeclarations: { Enabled: false }
+Style/Documentation: { Enabled: false }
+Style/GuardClause: { Enabled: false }
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/views/**/*'
+    - 'config/**/*.rb'
+    - 'db/**/*.rb'
+    - 'lib/**/*.rake'
+    - 'test/**/*'
+
+Bundler/OrderedGems: { Enabled: false }
