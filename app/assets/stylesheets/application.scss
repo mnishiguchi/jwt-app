@@ -1,0 +1,6 @@
+// load custom variables before bootstrap
+@import './shared/variables';
+
+// third-party styles from node_modules
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'izitoast/dist/css/iziToast';

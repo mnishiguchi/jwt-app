@@ -3,9 +3,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.2"
+ruby "2.6.3"
 
-gem "rails", "~> 6.0.0.beta3" # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem "rails", "~> 6.0.0.rc1" # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem "awesome_print"
 gem "bcrypt", "~> 3.1.7" # Use Active Model has_secure_password
@@ -16,9 +16,8 @@ gem "pg", ">= 0.18", "< 2.0" # Use postgresql as the database for Active Record
 gem "puma", "~> 3.11" # Use Puma as the app server
 gem "react-rails"
 gem "sass-rails", "~> 5.0" # Use SCSS for stylesheets
-gem "simple_command"
+gem "simple_command" # A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
 gem "strip_attributes"
-gem "turbolinks", "~> 5" # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "webpacker", ">= 4.0.0.rc.3" # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # gem 'image_processing', '~> 1.2' # Use Active Storage variant
 # gem 'redis', '~> 4.0' # Use Redis adapter to run Action Cable in production
@@ -45,7 +44,7 @@ end
 
 group :test do
   gem "capybara", ">= 2.15" # Adds support for Capybara system testing and selenium driver
-  gem "chromedriver-helper"
+  gem "webdrivers" # Keep your Selenium WebDrivers updated automatically
   gem "selenium-webdriver" # Easy installation and use of chromedriver to run system tests with Chrome
 end
 

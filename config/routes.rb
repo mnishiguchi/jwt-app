@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   end
 
   root to: "pages#home"
+
+  # Deligate any other routes to frontend router.
+  get "*path", to: "pages#home"
 end
