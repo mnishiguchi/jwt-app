@@ -27,7 +27,8 @@ module V1
                     email: authenticated_user.email,
                     username: authenticated_user.username,
                     avatar: authenticated_user.avatar }
-        { jwt: JsonWebToken.encode(payload) }
+        { jwt: JsonWebToken.encode(payload),
+          email: payload[:email] }
       end
 
       private def authenticated_user

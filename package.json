@@ -9,6 +9,7 @@
     "@rails/webpacker": "^4.0.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.3.1",
+    "formik": "^1.5.4",
     "izitoast": "^1.4.0",
     "jquery": "^3.4.0",
     "prop-types": "^15.7.2",
@@ -18,7 +19,8 @@
     "react_ujs": "^2.5.0",
     "reactstrap": "^8.0.0",
     "turbolinks": "^5.2.0",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "yup": "^0.27.0"
   },
   "version": "0.1.0",
   "devDependencies": {

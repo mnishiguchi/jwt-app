@@ -14,6 +14,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 
+import routes from './routes';
 import css from './TopNav.module';
 
 const repoUrl = 'https://github.com/mnishiguchi/jwt-app';
@@ -29,13 +30,23 @@ const TopNav = ({ title = 'React App' }) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink tag={RouterNavLink} to="/about">
+            <NavLink tag={RouterNavLink} to={routes.about()}>
               About
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={RouterNavLink} to="/contact">
+            <NavLink tag={RouterNavLink} to={routes.contact()}>
               Contact
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={RouterNavLink} to={routes.signup()}>
+              Signup
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={RouterNavLink} to={routes.login()}>
+              Login
             </NavLink>
           </NavItem>
           <NavItem>

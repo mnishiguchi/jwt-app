@@ -4,6 +4,7 @@ module V1
   class UserRegistrationsController < V1::ApplicationController
     skip_before_action :authorize_user_request
 
+    # TODO: handle "already-registered"
     # Register in a new user
     # POST /v1/user_registration
     def create
