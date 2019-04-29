@@ -21,7 +21,7 @@ class JwtAuthenticationTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     parsed_body = JSON.parse(response.body)
-    jwt = parsed_body.fetch("jwt")
+    jwt = parsed_body.dig("result", "jwt")
     assert_not_empty jwt
 
     # access resource with no jwt

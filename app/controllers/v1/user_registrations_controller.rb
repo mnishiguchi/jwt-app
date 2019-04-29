@@ -8,17 +8,27 @@ module V1
     # Register in a new user
     # POST /v1/user_registration
     def create
-      render_unauthorized unless User.create(user_registration_params)
+      render_failure_json(:not_modified) && return if User.where(email: user_registration_params[:email]).exists?
 
+      user = User.create(
+        email: user_registration_params.dig(:email),
+        password: user_registration_params.dig(:password),
+        password_confirmation: user_registration_params.dig(:password_confirmation)
+      )
+
+      render_failure_json(:unauthorized) && return unless user.valid?
+
+      # TODO: pass user as an argument
       command = V1::Commands::AuthenticateUser.call(
-        email: params.dig(:auth, :email),
-        password: params.dig(:auth, :password)
+        email: user.email,
+        password: user.password
       )
 
       if command.success?
-        render json: command.result, status: :created
+        # render json: command.result, status: :created
+        render_success_json(:created, result: command.result)
       else
-        render_unauthorized
+        render_failure_json(:unauthorized)
       end
     end
 

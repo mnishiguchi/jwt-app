@@ -13,9 +13,10 @@ module V1
       )
 
       if command.success?
-        render json: command.result, status: :created
+        # render json: command.result, status: :created
+        render_success_json(:created, result: command.result)
       else
-        render_unauthorized
+        render_failure_json(:unauthorized)
       end
     end
   end

@@ -49,11 +49,12 @@ const createActions = dispatch => ({
     dispatch({ type: USER_REGISTRATION_REQUEST, payload: {} });
   },
   userRegistrationFailure(error) {
-    console.log('userRegistrationFailure');
+    // TODO: handle "not_modified"
+    console.log('userRegistrationFailure', error);
     dispatch({ type: USER_REGISTRATION_FAILURE, payload: { error } });
   },
   userRegistrationSuccess(user) {
-    console.log('userRegistrationSuccess');
+    console.log('userRegistrationSuccess', user);
     dispatch({ type: USER_REGISTRATION_SUCCESS, payload: { user } });
   },
 });

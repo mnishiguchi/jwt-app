@@ -3,12 +3,6 @@
 require "test_helper"
 
 class V1::UserRegistrationsControllerTest < ActionDispatch::IntegrationTest
-  def setup
-    @email = "jimi@example.com"
-    @password = "good-password"
-    create(:user, email: @email, password: @password)
-  end
-
   test "with invalid params" do
     post v1_user_registration_url
     assert_response :unauthorized
@@ -23,9 +17,9 @@ class V1::UserRegistrationsControllerTest < ActionDispatch::IntegrationTest
 
   test "with valid params" do
     post v1_user_registration_url, params: {
-      auth: { email: @email,
-              password: @password,
-              password_confirmation: @password }
+      auth: { email: "jimi@example.com",
+              password: "good-password",
+              password_confirmation: "good-password" }
     }
     assert_response :success
   end

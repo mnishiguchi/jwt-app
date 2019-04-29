@@ -28,9 +28,6 @@ const validationSchema = Yup.object().shape({
     .email()
     .required('Required'),
   password: Yup.string().required('Required'),
-  passwordConfirmation: Yup.string()
-    .required('Required')
-    .oneOf([Yup.ref('password'), null], 'Must match'),
 });
 
 const formValuesToAuthParamsJson = values => JSON.stringify({
